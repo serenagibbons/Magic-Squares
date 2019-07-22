@@ -15,6 +15,10 @@ int main() {
 	return 0;
 }
 
-void inputMagicSq(int[][SIZE], int) {
-
+void inputMagicSq(int arr[SIZE][SIZE], int) {
+	for (int row = 0; row < SIZE; row++)
+		for (int col = 0; col < SIZE; col++) {
+			cout << "Item at (" << row << ", " << col << "): ";
+			cin >> arr[row][col];
+		}
 }
