@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 const int SIZE = 3;
@@ -11,6 +12,9 @@ bool isMagicSquare(int[SIZE][SIZE]);
 int main() {
 
 	int array[SIZE][SIZE];
+
+	cout << "A magic square is an n x n square matrix of distinct numbers that range from 1 to n^2.\n";
+	cout << "This program determines if a matrix is a magic square.\n\n";
 
 	// Prompt user to enter elements into matrix
 	cout << "Enter the elements of a 3x3 square: \n";
@@ -37,8 +41,13 @@ int main() {
 void inputMagicSq(int A[SIZE][SIZE], int) {
 	for (int row = 0; row < SIZE; row++)
 		for (int col = 0; col < SIZE; col++) {
-			cout << "Item at (" << row << ", " << col << "): ";
-			cin >> A[row][col];
+			do {
+				cout << "Item at (" << row << ", " << col << "): ";
+				cin >> A[row][col];
+				if (A[row][col] > pow(SIZE, 2)) {
+					cout << "An element cannot be greater than n^2, please enter another number.\n";
+				}
+			}  while (A[row][col] > pow(SIZE, 2));
 		}
 }
 
